@@ -87,7 +87,7 @@ def prima_gen(n):
             yield i
 
 
-prima1 = prima_gen(100)
+prima1 = prima_gen(20)
 for item in prima1:
     print(item)
 
