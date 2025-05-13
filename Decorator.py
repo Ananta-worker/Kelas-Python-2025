@@ -60,9 +60,66 @@ class Kucing(Hewan):
         print("\nini adalah kelas kucing")
 
     def info2(self):
-        print(f" ini adalah method ke 2 ")
+        print(f"\nini adalah method ke 2 ")
 
 
 kucing1 = Kucing()
 kucing1.info()
 
+
+class BangunDatar(ABC):
+    @abstractmethod
+    def luas(self):
+        pass
+
+    @abstractmethod
+    def keliling(self):
+        pass
+
+
+class Persegi(BangunDatar):
+    def __init__(self, sisi):
+        self.sisi = sisi
+
+    def luas(self):
+        luas = self.sisi * self.sisi
+        return luas
+
+    def keliling(self):
+        kel = self.sisi * 4
+        return kel
+
+    def __str__(self):
+        return str(self.sisi)
+
+
+persegi1 = Persegi(6)
+print(f"luas persegi dengan sisi= {persegi1} cm: ")
+print(persegi1.luas())
+
+print("keliling persegi: ")
+print(f"keliling persegi dengan sisi= {persegi1} cm: ")
+print(persegi1.keliling())
+
+
+class PersegiPanjang(BangunDatar):
+    def __init__(self, panjang, lebar):
+        self.panjang = panjang
+        self.lebar = lebar
+
+    def luas(self):
+        luas = self.panjang * self.lebar
+        return luas
+
+    def keliling(self):
+        kel = self.panjang * 2 + self.lebar * 2
+        return kel
+
+    def __str__(self):
+        return f"Panjang: {self.panjang} cm, Lebar: {self.lebar} cm"
+
+
+persegipanjang1 = PersegiPanjang(6, 5)
+
+print(f"Luas persegi panjang dengan {persegipanjang1}: {persegipanjang1.luas()} cm²")
+print(f"Keliling persegi panjang dengan: {persegipanjang1}: {persegipanjang1.keliling()} cm")
